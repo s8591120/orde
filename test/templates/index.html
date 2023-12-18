@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>點餐系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>菜單</h1>
+    <ul id="menu">
+        {% for item in menu %}
+            <li>
+                <label>
+                    <input type="checkbox" class="item-checkbox" value="{{ item.id }}">
+                    {{ item.name }} - ${{ item.price }}
+                </label>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <button onclick="calculateTotal()">計算總價</button>
+    <p id="totalPrice">總價: $0.00</p>
+
+    <button onclick="submitOrder()">提交訂單</button>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
