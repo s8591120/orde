@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>點餐系統</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Order System</title>
 </head>
 <body>
-    <h1>菜單</h1>
-    <ul id="menu">
-        {% for item in menu %}
-            <li>
-                <label>
-                    <input type="checkbox" class="item-checkbox" value="{{ item.id }}">
-                    {{ item.name }} - ${{ item.price }}
-                </label>
-            </li>
-        {% endfor %}
+
+    <h1>Order System</h1>
+
+    <ul id="order-list">
+        <!-- 訂單內容將會顯示在這裡 -->
     </ul>
 
-    <button onclick="calculateTotal()">計算總價</button>
-    <p id="totalPrice">總價: $0.00</p>
+    <button id="complete-order">Complete Order</button>
 
-    <button onclick="submitOrder()">提交訂單</button>
+    <h2>Menu</h2>
+    <ul id="menu-list">
+        <!-- 菜單內容將會顯示在這裡 -->
+    </ul>
 
+    <!-- 在 body 末尾引用 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- 在 body 末尾引用你的 JavaScript 文件 -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
